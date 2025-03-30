@@ -141,8 +141,6 @@ int main() {
     printf("Pontos turísticos: %d\n", numeroDePontosTuristicos2);
 
 
-return 0;
-
 
     /*INFORMAÇÇÕES DAS CARTAS
     CARTA 1:
