@@ -1,121 +1,97 @@
 #include <stdio.h>
-
-// Desafio Super Trunfo - Países
+    //Desafio Super Trunfo - Nível Mestre!
+    //  PHProgamador
 int main(){
-
-
-    long int populacao, populacao2, divisao;
-    int numeroDePontosTuristicos, numeroDePontosTuristicos2, resultado1, resultado2;
-    float area, area2, pib, pib2;
-    float densidadepopulacional, densidadepopulacional2, pibPerCapita, pibPerCapita2;
-    char estado[20], estado2[20], codigo[20], codigo2[20], nomedacidade[50], nomedacidade2[50];
+    int pontosTuristicosA, pontosTuristicosB, resultadoA, resultadoB;
+    unsigned long int populacaoA, populacaoB;
+    float areaA, areaB, pibA, pibB, densidadeA, densidadeB, pibpercapitaA, pibpercapitaB, superpoderA, superpoderB; // **LEMBRANDO QUE O SUPERPODER É A SOMA DE POPUAÇÃO, ÁREA, PIB, PIB PER CAPITA E DENSIDADE POPULACIONAL INVERTIDA PARA COMPARAÇÃO E NÚMERO DE PONTOS TURÍSTICOS**
+    char estadoA[20], estadoB[20], codigoA[30], codigoB[30], cidadeA[50], cidadeB[50], carta1[20], carta2[20];
     
-    // ENTRADA DE DADOS DA PARA PRIMEIRA CARTA
-    printf("Digite o Estado: ");
-    scanf("%s", estado);  // Não colocar (\n) no scanf para (char)(%s) quando for ler mais entradas.
-    printf("Digite o código do Estado: ");
-    scanf("%s", codigo); // "A01 a A04"
-      getchar(); // Agora o getchar consome o caractere '\n'
-    printf("Digite o nome da cidade: ");
-    fgets(nomedacidade, sizeof(nomedacidade), stdin);   
-    printf("Digite o número da população: (sem pontos) ");
-    scanf("%ld", &populacao); // %ld para long int    
-    printf("Digite a área da cidade em quilometros quadrados:");
-    scanf("%f", &area);    
-    printf("Digite o PIB: ");
-    scanf("%f", &pib);    
-     printf("Digite o número de pontos turísticos: ");
-     scanf("%d", &numeroDePontosTuristicos); 
-   
-    // CÁLCULO DA DENSIDADE POPULACIONAL
-    densidadepopulacional = populacao / area;
-    pibPerCapita = (pib * 1e9) / (float)populacao; // Multiplicando por 1 bilhão
+        printf("\nDESAFIO SUPER TRUNFO\n");
+        printf("CARTA 1:\n");
 
-    
+        //Entrda de Dados Carta 1
 
+            printf("Qual é o Estado? ");
+            scanf(" %[^\n]", estadoA);
 
-// ENRADA DE DADOS PARA SEGUNDA CARTA
+            printf("Qual é o código do Estado? ");
+            scanf("%s", codigoA);
 
-     printf("Digite o Estado: ");
-      scanf("%s", estado2);  // Não colocar (\n) no scanf para (char)(%s) quando for ler mais entradas.
-      printf("Digite o código do Estado: ");
-      scanf("%s", codigo2); // "B01 a B04"
-      getchar(); // Consome a quebra de linha deixada pelo scanf
-       printf("Digite o nome da cidade: ");
-      fgets(nomedacidade2, sizeof(nomedacidade2), stdin);
-       printf("Digite o número da população: (sem pontos) ");
-        scanf("%ld", &populacao2); // %ld para long int
-      printf("Digite a área da cidade em quilometros quadrados:");
-      scanf("%f", &area2);
-       printf("Digite o PIB: ");
-       scanf("%f", &pib2);
-      printf("Digite o nímero de pontos turísticos: ");
-       scanf("%d", &numeroDePontosTuristicos2); 
+            printf("Qual é o número da população? ");
+            scanf("%lu", &populacaoA);
 
-       // CÁLCULO DA DENSIDADE POPULACIONAL
-    densidadepopulacional2 = populacao2 / area2;
-    pibPerCapita2 = (pib2 * 1e9) / (float)populacao2; // Multiplicando por 1 bilhão
+            getchar();
+            printf("Qual é o nome da ciade? ");
+            fgets(cidadeA, sizeof(cidadeA), stdin);
 
+            printf("Qual é a área da cidade em quilometros quadrados?");
+            scanf("%f", &areaA);
 
-// informações exibidas
+            printf("Qual é o PIB? ");
+            scanf("%f", &pibA);
 
-    printf("\n Carta 1 \n");
-    printf("O Estado é: %s\n", estado); 
-    printf("O código do Estado é: %s\n", codigo);
-    printf("O nome da cidade é: %s", nomedacidade); // 'fgets' já inclui o '\n'
-    printf("O número da população é de: %ld\n", populacao);
-    printf("A área da cidade é de: %2.f km²\n", area);
-    printf("O PIB é de: %f bilhões de reais\n", pib);
-    printf("Pontos turísticos: %d\n", numeroDePontosTuristicos);
-    printf("Densidade Populacional: %.2f\n hab/km²", densidadepopulacional);
-    printf("PIB per Capita: R$ %.2f\n", pibPerCapita);
+            printf("Qual é o número de pontos turísticos? ");
+            scanf("%d", &pontosTuristicosA);
 
-    printf("\n Carta 2 \n");
-    printf("O Estado é: %s\n", estado2);
-    printf("O código do Estado é: %s\n", codigo2);
-    printf("O nome da cidade é: %s", nomedacidade2); // 'fgets' já inclui o '\n'
-    printf("O número da população é de: %ld\n", populacao2);
-    printf("A área da cidade é de: %2.f km²\n", area2);
-    printf("O PIB é de: %f bilhões de reais\n", pib2);
-    printf("Pontos turísticos: %d\n", numeroDePontosTuristicos2);
-    printf("Densidade Populacional: %.2f\n hab/km²", densidadepopulacional2);
-    printf("PIB per Capita: R$ %.2f\n", pibPerCapita2);
+        // CÁLCULO DE DENSIDADE POPULACIONAL
 
+            densidadeA = populacaoA / areaA;
+            pibpercapitaA = (pibA * 1e9) / (float)populacaoA; // (1e9 Multiplicando por 1 Bilhão)
 
+        //Entragda de Dados Carta 2
+    printf("CARTA 2:\n");
+
+        printf("Qual é o Estado? ");
+            scanf(" %[^\n]", estadoB);
+
+            printf("Qual é o código do Estado? ");
+            scanf("%s", codigoB);
+
+            printf("Qual é o número da população? ");
+            scanf("%lu", &populacaoB);
+
+            getchar();
+            printf("Qual é o nome da ciade? ");
+            fgets(cidadeB, sizeof(cidadeB), stdin);
+
+            printf("Qual é a área da cidade em quilometros quadrados?");
+            scanf("%f", &areaB);
+
+            printf("Qual é o PIB? ");
+            scanf("%f", &pibB);
+
+            printf("Qual é o número de pontos turísticos? ");
+            scanf("%d", &pontosTuristicosB);
+
+        // CÁLCULO DE DENSIDADE POPULACIONAL
+
+            densidadeB = populacaoB / areaB;
+            pibpercapitaB = (pibB * 1e9) / (float)populacaoB; // (1e9 Multiplicando por 1 Bilhão)
+
+        // CÁLCULO DO SUPER PODER
+            superpoderA = populacaoA + areaA + pibA +pontosTuristicosA + (1 / densidadeA);
+            superpoderB = populacaoB + areaB + pibB + pontosTuristicosB + (1 / densidadeB);
+
+         //Saída de Dados 
+
+        printf("\nCARTA 1\n");
+        printf("Estado: %s\nCódigo: %s\nCidade: %sPopulação: %lu\nÁrea: %.2f km²\nPIB: R$ %.2f\nPontos Turísticos: %d\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: R$ %.2f\nSuper Poder: %.2f\n",
+        estadoA, codigoA, cidadeA, populacaoA, areaA, pibA, pontosTuristicosA, densidadeA, pibpercapitaA, superpoderA);
+
+        printf("\nCARTA 2\n");
+        printf("Estado: %s\nCódigo: %s\nCidade: %sPopulação: %lu\nÁrea: %.2f km²\nPIB: R$ %.2f\nPontos Turísticos: %d\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: R$ %.2f\nSuper Poder: %.2f\n",
+        estadoB, codigoB, cidadeB, populacaoB, areaB, pibB, pontosTuristicosB, densidadeB, pibpercapitaB, superpoderB);
+       
+        // Comparação de atributos
+        printf("\nComparação de Cartas:\n");
+        printf("População: Carta %d venceu (%d)\n", (populacaoA > populacaoB) ? 1 : 2, populacaoA > populacaoB);
+        printf("Área: Carta %d venceu (%d)\n", (areaA > areaB) ? 1 : 2, areaA > areaB);
+        printf("PIB: Carta %d venceu (%d)\n", (pibA > pibB) ? 1 : 2, pibA > pibB);
+        printf("Pontos Turísticos: Carta %d venceu (%d)\n", (pontosTuristicosA > pontosTuristicosB) ? 1 : 2, pontosTuristicosA > pontosTuristicosB);
+        printf("Densidade Populacional: Carta %d venceu (%d)\n", (densidadeA < densidadeB) ? 1 : 2, densidadeA < densidadeB);
+        printf("PIB per Capita: Carta %d venceu (%d)\n", (pibpercapitaA > pibpercapitaB) ? 1 : 2, pibpercapitaA > pibpercapitaB);
+        printf("Super Poder: Carta %d venceu (%d)\n", (superpoderA > superpoderB) ? 1 : 2, superpoderA > superpoderB);
+        
 return 0;
-
-
-
-    /*INFORMAÇÇÕES DAS CARTAS
-    CARTA 1:
-    O Estado é: A
-    O código do Estado é: A01
-    O nome da cidade é: Niterói
-    O número da população é de: 481749
-    A área da cidade é de: 133.757 km²
-    O PIB é de: 66 bilhoes de reais
-    Pontos turísticos: 5
-    
-    Carta 2:
-    O Estado é: B
-    O código do Estado é: B02
-    O nome da cidade é: Rio de Janeiro
-    O número da população é de: 6211223
-    A área da cidade é de: 1200 km²
-    O PIB é de: 364 bilhões de reais
-    Pontos turísticos: 5
-    */
-
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
-   
-}
+    }
