@@ -22,7 +22,7 @@ int main(){
             scanf("%lu", &populacaoA);
 
             getchar();
-            printf("Qual é o nome da ciade? ");
+            printf("Qual é o nome da cidade? ");
             fgets(cidadeA, sizeof(cidadeA), stdin);
 
             printf("Qual é a área da cidade em quilometros quadrados?");
@@ -39,7 +39,7 @@ int main(){
             densidadeA = populacaoA / areaA;
             pibpercapitaA = (pibA * 1e9) / (float)populacaoA; // (1e9 Multiplicando por 1 Bilhão)
 
-        //Entragda de Dados Carta 2
+        //Entrada de Dados Carta 2
     printf("CARTA 2:\n");
 
         printf("Qual é o Estado? ");
@@ -70,8 +70,8 @@ int main(){
             pibpercapitaB = (pibB * 1e9) / (float)populacaoB; // (1e9 Multiplicando por 1 Bilhão)
 
         // CÁLCULO DO SUPER PODER
-            superpoderA = populacaoA + areaA + pibA +pontosTuristicosA + (1 / densidadeA);
-            superpoderB = populacaoB + areaB + pibB + pontosTuristicosB + (1 / densidadeB);
+            superpoderA = populacaoA + areaA + pibA + pontosTuristicosA + pibpercapitaA + (1 / densidadeA);
+            superpoderB = populacaoB + areaB + pibB + pontosTuristicosB + pibpercapitaA +(1 / densidadeB);
 
          //Saída de Dados 
 
